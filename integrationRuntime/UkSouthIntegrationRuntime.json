@@ -1,0 +1,17 @@
+{
+	"name": "UkSouthIntegrationRuntime",
+	"properties": {
+		"type": "Managed",
+		"description": "Integration runtime location in the UK South region",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "UK South",
+				"dataFlowProperties": {
+					"computeType": "General",
+					"coreCount": 8,
+					"timeToLive": 0
+				}
+			}
+		}
+	}
+}

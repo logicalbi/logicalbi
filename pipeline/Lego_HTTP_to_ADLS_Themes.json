@@ -1,0 +1,79 @@
+{
+	"name": "Lego_HTTP_to_ADLS_Themes",
+	"properties": {
+		"description": "Copying data from a website (HTTP) into Azure Data Lake Storage Gen2 (ADLS)",
+		"activities": [
+			{
+				"name": "Copy_Lego",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "themes.csv.gz"
+					},
+					{
+						"name": "Destination",
+						"value": "lego//themes.csv"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "ABLB_logicalbiblob",
+							"type": "LinkedServiceReference"
+						},
+						"path": "lego/errors/themes"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "HTTP_Lego_Themes",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ADLS_Lego_Themes",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [
+			"Extract"
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

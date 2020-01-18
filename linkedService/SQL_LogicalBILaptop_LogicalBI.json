@@ -1,0 +1,17 @@
+{
+	"name": "SQL_LogicalBILaptop_LogicalBI",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Connection to Logical BI database on SQL Server 2017, running on LogicalBI laptop",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=LBI-DELL-XPS13;initial catalog=LogicalBI;user id=chris",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJmZjFiYzcyZS1jZWRkLTQ2NzQtYTU3MC04ZTliYzY4ZTlkNTciLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "LogicalBILaptopIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

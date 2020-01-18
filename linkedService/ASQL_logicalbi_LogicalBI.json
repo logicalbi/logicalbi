@@ -1,0 +1,13 @@
+{
+	"name": "ASQL_logicalbi_LogicalBI",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Connection to the Logical BI database on the server logicalbi.database.windows.net",
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=logicalbi.database.windows.net;initial catalog=LogicalBI;user id=logicalbi",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkxPR0lDQUxCSV8xY2RmZmU5Ni01ZDY5LTQyY2MtYmE1YS1hMjY0MGM2YmQzZDIiDQp9"
+		}
+	}
+}

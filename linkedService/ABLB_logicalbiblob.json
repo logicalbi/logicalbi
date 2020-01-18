@@ -1,0 +1,13 @@
+{
+	"name": "ABLB_logicalbiblob",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Connection to logicalbi's Azure Blob Storage account (logicalbiblob)",
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=logicalbiblob;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkxPR0lDQUxCSV8wM2UwODA4ZS0zNmQ3LTQ4NjMtYTZjNS01MThlNmM0NTE4ZTgiDQp9"
+		}
+	}
+}

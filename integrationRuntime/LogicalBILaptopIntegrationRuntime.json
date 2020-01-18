@@ -1,0 +1,6 @@
+{
+	"name": "LogicalBILaptopIntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
