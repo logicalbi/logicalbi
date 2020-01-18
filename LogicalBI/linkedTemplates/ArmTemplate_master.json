@@ -1,0 +1,111 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "LogicalBI"
+		},
+		"ABLB_logicalbiblob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ABLB_logicalbiblob'"
+		},
+		"ADLS_logicalbils_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_logicalbils'"
+		},
+		"ASQL_logicalbi_LogicalBI_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ASQL_logicalbi_LogicalBI'"
+		},
+		"SQL_LogicalBILaptop_LogicalBI_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQL_LogicalBILaptop_LogicalBI'"
+		},
+		"ADLS_logicalbils_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://logicalbidls.dfs.core.windows.net"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "cdn.rebrickable.com/media/downloads/"
+		},
+		"HttpServer_Lego_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ABLB_logicalbiblob_connectionString": {
+						"value": "[parameters('ABLB_logicalbiblob_connectionString')]"
+					},
+					"ADLS_logicalbils_accountKey": {
+						"value": "[parameters('ADLS_logicalbils_accountKey')]"
+					},
+					"ASQL_logicalbi_LogicalBI_connectionString": {
+						"value": "[parameters('ASQL_logicalbi_LogicalBI_connectionString')]"
+					},
+					"SQL_LogicalBILaptop_LogicalBI_connectionString": {
+						"value": "[parameters('SQL_LogicalBILaptop_LogicalBI_connectionString')]"
+					},
+					"ADLS_logicalbils_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_logicalbils_properties_typeProperties_url')]"
+					},
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"HttpServer_Lego_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer_Lego_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_0')]"
+			]
+		}
+	]
+}
