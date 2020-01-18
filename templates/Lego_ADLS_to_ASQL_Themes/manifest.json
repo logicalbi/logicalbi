@@ -20,6 +20,7 @@
 			}
 		}
 	},
+	"documentation": "https://www.cathrinewilhelmsen.net/2019/12/19/templates-azure-data-factory/",
 	"author": "chris.healey@logicalbi.co.uk",
 	"annotations": [
 		"ADLS",
