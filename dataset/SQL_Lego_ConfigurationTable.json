@@ -1,0 +1,17 @@
+{
+	"name": "SQL_Lego_ConfigurationTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_LogicalBILaptop_LogicalBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "lego",
+			"table": "Themes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
