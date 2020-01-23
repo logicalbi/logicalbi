@@ -26,6 +26,32 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Lookup Configuration File",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Lego_HTTP_to_ADLS_Themes",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"FileName": {
+							"value": "@activity('Lookup Configuration File').output.FirstRow.SourceFileName",
+							"type": "Expression"
+						}
+					}
+				}
 			}
 		],
 		"annotations": []
